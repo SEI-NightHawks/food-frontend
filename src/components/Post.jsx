@@ -5,7 +5,7 @@ import React from 'react'
 function Post({post}) {
   console.log(post)
   return (
-    <div className="bg-white border border-gray-300 rounded-3xl shadow-md max-w-md mx-auto my-4">
+    <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-md max-w-md mx-auto my-4">
     {/* Header - User Info */}
     <div className="flex items-center p-4">
         <img
