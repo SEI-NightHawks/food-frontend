@@ -1,33 +1,32 @@
-import React from 'react'
-import {useEffect, useState} from 'react'
-import {getPosts} from '../services/posts.js'
-import Post from '../components/Post.jsx'
+import React, { useEffect, useState } from 'react';
+import { getPosts } from '../services/posts.js';
+import Post from '../components/Post.jsx';
 
-function Posts( //{setShowNav}
-) {
-//   setShowNav(true)
-    const [posts , setPosts] = useState([])
+function Posts(props) {
+  // Log the props
+  console.log(props);
 
-    useEffect(()=>{
-      fetchPosts()
-    }, []) //only fire this function one time 
-  
-    async function fetchPosts () {
-      const allPosts = await getPosts()
-      setPosts(allPosts)
-    }
-  
-    return (
-      <div>
-        <h1>Post</h1>
-        <div className="post-container">
-          {
-            posts.map((post)=>(
-              <Post post={post} />
-            ))
-          }
-        </div>
-      </div>
-    )
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  async function fetchPosts() {
+    const allPosts = await getPosts();
+    setPosts(allPosts);
   }
-export default Post
+
+  return (
+    <div>
+      <h1>Post</h1>
+      <div className="post-container">
+        {posts.map((post) => (
+          <Post post={post} key={post.id} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Posts;
