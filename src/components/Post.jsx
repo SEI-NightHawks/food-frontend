@@ -1,33 +1,39 @@
-import React from 'react';
+import React from 'react'
+// import {Link} from 'react-router-dom'
+// import "../css/Characters.css"
 
-const Card = ({ profileName, profileImage, caption, postImage }) => {
+function Post({post}) {
+  console.log(post)
   return (
-    <div className="post-card">
-      <div className="user-info">
-        <img className="profile-image" src={profileImage} alt="Profile" />
-        <span className="profile-name">{profileName}</span>
-      </div>
-      <div className="post-image-container">
-        <img className="post-image" src={postImage} alt="Post" />
-      </div>
-      <div className="interaction-buttons">
-        <div className="heart-container">
-          {/* Heart icon */}
-          <button className="heart-button">
-            <i className="fa fa-heart-o" aria-hidden="true"></i>
-          </button>
-          {/* Display like count */}
-          <span className="like-count">100 likes</span>
-        </div>
-        {/* Comment button */}
-        <button className="comment-button">Comment</button>
-        {/* Share button */}
-        <button className="share-button">Share</button>
-      </div>
-      {/* Caption */}
-      <div className="caption">{caption}</div>
+    <div className="bg-white border border-gray-300 rounded-3xl shadow-md max-w-md mx-auto my-4">
+    {/* Header - User Info */}
+    <div className="flex items-center p-4">
+        <img
+          className="h-10 w-10 rounded-full object-cover"
+          src={post.image_url}
+          // alt={post.details}
+        />
+        <span className="ml-2 font-semibold">{post.user_profile}</span>
     </div>
-  );
-};
+    {/* Image */}
+        <img
+              className="w-full object-cover"
+              src={post.image_url}
+              alt={post.details}
+            />
 
-export default Card;
+      {/* Caption */}
+      <div className="px-4 pb-2 flex justify-between p-4">
+        <span className="font-semibold">{post.location}</span>
+      </div>
+
+      <div className="px-4 pb-2 ">
+        <span className="font-semibold">{post.user_profile} </span>{post.details}
+      </div>
+
+    </div>
+    // </Link>
+  )
+}
+
+export default Post
