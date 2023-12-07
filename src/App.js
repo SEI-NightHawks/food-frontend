@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
 import './App.css';
-import { getComments } from "./services/comments";
+import Feed from '../src/screens/Feed.jsx'
+import Profile from "../src/screens/Profile.jsx"
+import SignUp from "../src/screens/SignUp.jsx"
+import SignIn from "../src/screens/SignIn.jsx"
+import getPosts from "./services/posts.js"
+import { Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const commentsData = await getComments(); // Call the getComments function
-        console.log(commentsData); // Log the comments data to the console
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-      }
-    };
-
-    fetchData(); // Invoke the function to fetch comments when the component mounts
-  }, []);
-
   return (
-    <h1>Check the console for comments data</h1>
-    // You can render your components here as needed
+    <div className='App'>
+      <Routes>
+        {/* <Route path="/" element={<SignIn/>}/>
+        <Route path="/sign-up" element={<SignUp/>}/>
+        <Route path="/profile/:profileId" element={<Profile/>}/> */}
+        <Route path="/feed" element={<Feed/>}/>
+        
+      </Routes>
+    </div>
   );
 }
 
