@@ -2,11 +2,13 @@ import React from 'react'
 import {useEffect, useState} from 'react'
 import {getPosts} from '../../src/services/posts.js'
 import Post from '../components/Post.jsx'
+import Nav from '../components/Nav.jsx'
 
 function Posts(//{setShowNav}
-  ) {
+) {
   // setShowNav(true)
     const [posts , setPosts] = useState([])
+    const latestPosts = [...posts].reverse();
 
     useEffect(()=>{
       fetchPosts()
@@ -17,13 +19,14 @@ function Posts(//{setShowNav}
       setPosts(allPosts)
     }
     return (
-      <div>
-        <div className="posts-container">
-          {
-            posts.map((post)=>(
-              <Post post={post} />
-            ))
-          }
+      <div className="flex flex-col">
+        <Nav />
+        <div className="posts-container pt-20 p-3">
+        {
+          latestPosts.map((post) => (
+         <Post key={post.id} post={post} />
+          ))
+        }
         </div>
       </div>
     )
