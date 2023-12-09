@@ -64,6 +64,7 @@ function AddPost() {
                     <textarea
                       name="details"
                       value={post.details}
+                      onChange={handleChange}
                       maxLength="250"
                       className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your feedback (max 250 characters)"

@@ -44,7 +44,7 @@ const SignIn = props => {
     try {
       const user = await signIn(form);
       setUser(user);
-      navigate("/home");
+      navigate("/feed");
     } catch (error) {
       console.error(error);
       setForm({
