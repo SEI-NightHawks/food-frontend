@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import Slider from 'react-slick';
 import { signIn } from '../services/users.js'
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +22,7 @@ import { useNavigate } from 'react-router-dom';
 //   cssEase: 'linear',
 // };
 
-const SignIn = (props) => {
+const SignIn = ({setUser, setProfile}) => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -41,9 +41,10 @@ const SignIn = (props) => {
 
   const onSignIn = async event => {
     event.preventDefault();
-    const { setUser } = props;
+
     try {
       const user = await signIn(form);
+
       setUser(user);
       navigate("/feed");
     } catch (error) {
