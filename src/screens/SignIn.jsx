@@ -1,6 +1,7 @@
-import {useState} from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
 import Slider from 'react-slick';
-//import { Signin } from 'services folder/user?;
+import { getUserProfile } from '../services/user_profiles'
 import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -25,7 +26,7 @@ const SignIn = props => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    email: "",
+    username: "",
     password: "",
     isError: false,
     errorMsg: "",
@@ -42,7 +43,7 @@ const SignIn = props => {
     event.preventDefault();
     const { setUser } = props;
     try {
-      const user = await signIn(form);
+      const getUserProfile = await getUserProfile(form);
       setUser(user);
       navigate("/feed");
     } catch (error) {
@@ -119,7 +120,7 @@ const SignIn = props => {
                     type="submit"
                     className="w-full text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800"
                   >
-                    Sign In
+                    {renderError}
                   </button>
                   <p className="text-sm font-medium text-white">
                     Don’t have an account yet? <a href="#" className="font-extrabold hover:underline dark:text-white">Sign up</a>
