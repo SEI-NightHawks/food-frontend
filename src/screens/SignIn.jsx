@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 // import Slider from 'react-slick';
 import { signIn } from '../services/users.js'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
 
@@ -76,11 +76,11 @@ const SignIn = (props) => {
     <div className="relative h-screen">
       <div className="flex items-center justify-center min-h-screen absolute top-0 left-0 w-full">
         <section className="z-10">
-          <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <div className="flex flex-col items-center justify-center  bg-gray-800 px-6 py-8 mx-auto md:h-screen lg:py-0 ">
             <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-gray-900">
               Munch Meet
             </a>
-            <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+            <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
               <div className="p-6 backdrop-blur space-y-4 md:space-y-6 sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="#" onSubmit={onSignIn}>
                   <div>
@@ -114,8 +114,9 @@ const SignIn = (props) => {
                   <button
                     type="button"
                     className="w-full text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800"
-                  >
+                  ><Link to="/feed">
                     Nosey?
+                    </Link>
                   </button>
                 </form>
               </div>
