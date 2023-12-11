@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPost } from '../services/posts';
 
-function CreatePost({setShowNav}) {
-    setShowNav(true)
+function CreatePost() {
+    
     const [post, setPost] = useState({
         image_url: "",
         location: "",
