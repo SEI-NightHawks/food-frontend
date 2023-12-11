@@ -53,7 +53,7 @@ const SignUp = (props) => {
     }
   }
 
-  const { username, email, password, passwordConfirmation } = form
+  const { username, password, passwordConfirmation } = form
 
   return (
     <div className='main-div'>
@@ -70,16 +70,7 @@ const SignUp = (props) => {
           onChange={handleChange}
           className='input'
         />
-        <label className="prompt">EMAIL ADDRESS</label>
-        <input
-          required
-          type='email'
-          name='email'
-          value={email}
-          placeholder='Enter email'
-          onChange={handleChange}
-          className='input'
-        />
+  
                 <label className="prompt">PASSWORD</label>
         <input
           required
@@ -103,12 +94,11 @@ const SignUp = (props) => {
         />
         {renderError()}
       </form>
-      <Link to={"/sign-in"}>
+      <Link to={"/"}>
           <button className="bg-red-500">SIGN IN</button>
         </Link>
     </div>
     </div>
   )
 }
-
 export default SignUp
