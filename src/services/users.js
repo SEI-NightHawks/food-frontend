@@ -19,8 +19,7 @@ export const signIn = async (credentials) => {
   try {
     const resp = await api.post("/users/login/", credentials);
     localStorage.setItem("token", resp.data.access);
-    const user = jwtDecode(resp.data.access);
-    return user;
+    return resp.data;
   } catch (error) {
     throw error;
   }
@@ -47,7 +46,7 @@ export const changePassword = async (passwords, user) => {
 export const verifyUser = async () => {
   const token = localStorage.getItem("token");
   if (token) {
-    const res = await api.get("/verify");
+    const res = await api.get("/users/verify/");
     return res.data;
   }
   return false;

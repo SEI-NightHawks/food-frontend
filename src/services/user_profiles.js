@@ -9,9 +9,9 @@ export const getUserProfiles = async () => {
   }
 };
 
-export const getUserProfile = async (id) => {
+export const getUserProfile = async () => {
   try {
-    const response = await api.get(`/userProfiles/${id}?format=json`);
+    const response = await api.get(`/user/profile/`);
     return response.data;
   } catch (error) {
     throw error;

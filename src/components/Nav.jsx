@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { isAuthenticated } from '../services/authUtils';
 import { useState } from 'react';
+import { signOut } from '../services/users';
+import { getUserProfile } from '../services/user_profiles';
 
-const Nav = () => {
+
+const Nav = ({user}) => {
   const [activeItem, setActiveItem] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const loggedIn = isAuthenticated();
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  let navigate = useNavigate()
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);  };
@@ -19,6 +23,11 @@ const Nav = () => {
   const handleIndicator = (el) => {
     setActiveItem(el);
   };
+
+  const handleSignOut = async (e) => {
+    await signOut()
+    navigate("/sign-in")
+  }
 
   const items = [
     { text: "Home", activeColor: "#F87917" },
@@ -48,7 +57,7 @@ const Nav = () => {
             className={`focus:outline-none text-white`}
             onClick={toggleDarkMode}
           >
-            Dark Mode
+            {/* Dark Mode */}
           </button>
           <div className="relative">
             <Link
@@ -60,8 +69,8 @@ const Nav = () => {
                 handleIndicator(items[1]);
               }}
             >
-              <div className="w-14 h-14 overflow-hidden rounded-full border-4 border-white">
-                {/* Replace with user image or icon */}
+              <div className="w-14 h-14 overflow-hidden rounded-full border-2 border-white">
+                <img className='w-full h-full object-cover' src={user?.user_profile?.profile_pic_url} alt={user?.user_profile?.user?.username}/>
               </div>
             </Link>
             {dropdownVisible && (
@@ -70,7 +79,7 @@ const Nav = () => {
                   to="#"
                   className="block px-4 py-2 text-gray-800 hover:bg-green-600"
                 >
-                  Welcome, {}
+                  Welcome, {user?.user_profile?.user?.username}
                 </Link>
                 <Link
                   to="/profile"
@@ -84,12 +93,12 @@ const Nav = () => {
                 >
                   Add Post
                 </Link>
-                <Link
-                  to="/sign-out"
+                <button
+                  onClick={handleSignOut}
                   className="block px-4 py-2 text-gray-800 hover:bg-green-600"
                 >
                   Sign Out
-                </Link>
+                </button>
                 {/* Add more dropdown items here */}
               </div>
             )}
