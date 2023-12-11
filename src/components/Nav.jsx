@@ -36,7 +36,7 @@ const Nav = ({user}) => {
 
   const renderLoggedInNavbar = () => (
     <div
-      className={`text-center bg-gray-200 rounded-b-2xl shadow-sm mb-10 fixed top-0 w-full border-b-2 border-gray-300`}
+      className={`backdrop-blur-sm text-center bg-red-200 bg-opacity-30 rounded-b-2xl shadow-sm mb-10 fixed top-0 w-full border-b-1 border-gray-300`}
     >
       <nav
         className={`flex justify-between items-center p-2 sm:p-4 text-white`}
