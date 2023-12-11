@@ -23,10 +23,12 @@ const SignIn = (props) => {
   const onSignIn = async (event) => {
     event.preventDefault()
     const { setUser } = props
+    console.log(props)
     try {
       const user = await signIn(form)
       setUser(user)
-      navigate('/')
+      console.log(user)
+      navigate('/feed')
     } catch (error) {
       console.error(error)
       setForm({
