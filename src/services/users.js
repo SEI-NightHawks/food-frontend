@@ -4,10 +4,13 @@ import { jwtDecode } from "jwt-decode";
 export const signUp = async (credentials) => {
   try {
     const resp = await api.post("/users/register/", credentials);
-    localStorage.setItem("token", resp.data.token);
-    const user = jwtDecode(resp.data.token);
+    const token = resp.data.access;
+    console.log(resp.data)
+    localStorage.setItem('token', token);
+    const user = jwtDecode(token);
     return user;
   } catch (error) {
+    console.error("Sign-up error:", error);
     throw error;
   }
 };
@@ -15,8 +18,8 @@ export const signUp = async (credentials) => {
 export const signIn = async (credentials) => {
   try {
     const resp = await api.post("/users/login/", credentials);
-    localStorage.setItem("token", resp.data.token);
-    const user = jwtDecode(resp.data.token);
+    localStorage.setItem("token", resp.data.access);
+    const user = jwtDecode(resp.data.access);
     return user;
   } catch (error) {
     throw error;
