@@ -69,7 +69,7 @@ const Nav = ({user}) => {
               }}
             >
               <div className="w-14 h-14 overflow-hidden rounded-full shadow-lg">
-                <img className='w-full h-full object-cover' src={user?.user_profile?.profile_pic_url} alt={user?.user_profile?.user?.username}/>
+                <img className='w-full h-full object-cover' src={user?.profile_pic_url} alt={user?.user_profile?.user?.username}/>
               </div>
             </Link>
             {dropdownVisible && (

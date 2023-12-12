@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/profile" element={<Profile setUser={setUser} user={user}/>}/> 
         <Route path="/profile" element={<Profile user={user}/>}/> 
         <Route path="/feed" element={<Feed user={user}/> }/>
         <Route path="/sign-up" element={<SignUp setUser={setUser}/> }/>
