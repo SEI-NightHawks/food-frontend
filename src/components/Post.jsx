@@ -7,7 +7,7 @@ function Post({post}) {
   return (
     <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-md max-w-md mx-auto my-4">
     {/* Header - User Info */}
-    <div className="flex items-center p-4">
+    <div className="flex items-center bg-magenta-100 rounded-t-3xl p-4">
         <img
           className="h-10 w-10 rounded-full object-cover"
           src={post.user_profile.profile_pic_url}

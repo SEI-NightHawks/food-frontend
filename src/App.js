@@ -26,7 +26,7 @@ function App () {
   return (
     <div className='App'>
       <Routes>
-        {/* <Route path="/profile/:profileId" element={<Profile/>}/>  */}
+        <Route path="/profile" element={<Profile/>}/> 
         <Route path="/feed" element={<Feed user={user}/> }/>
         <Route path="/sign-up" element={<SignUp setUser={setUser}/> }/>
         <Route path="/" element={<SignIn setUser={setUser} />}/>
