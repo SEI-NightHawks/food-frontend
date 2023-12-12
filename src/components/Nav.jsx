@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { isAuthenticated } from '../services/authUtils';
 import { useState } from 'react';
 import { signOut } from '../services/users';
-import { getUserProfile } from '../services/user_profiles';
 
 
 const Nav = ({user}) => {
@@ -36,7 +35,7 @@ const Nav = ({user}) => {
 
   const renderLoggedInNavbar = () => (
     <div
-      className={`backdrop-blur-sm text-center bg-red-200 bg-opacity-30 rounded-b-2xl shadow-sm mb-10 fixed top-0 w-full border-b-1 border-gray-300`}
+      className={`backdrop-blur-sm text-center bg-red-200 bg-opacity-30 rounded-b-2xl shadow-lg mb-10 fixed top-0 w-full border-b-1 border-gray-300`}
     >
       <nav
         className={`flex justify-between items-center p-2 sm:p-4 text-white`}
@@ -49,7 +48,7 @@ const Nav = ({user}) => {
             handleIndicator(items[0]);
           }}
         >
-        <img src="https://raw.githubusercontent.com/SEI-NightHawks/food-frontend/8655cab7f5affda7ecb0921a827b41434120dac5/src/Images/munch-meet-logo.png" />
+        <img src="https://github.com/SEI-NightHawks/food-frontend/blob/develop/src/Images/logo.png?raw=true" />
         </Link>
 
         <div className={`flex justify-between w-40 `}>
@@ -69,7 +68,7 @@ const Nav = ({user}) => {
                 handleIndicator(items[1]);
               }}
             >
-              <div className="w-14 h-14 overflow-hidden rounded-full border-2 border-white">
+              <div className="w-14 h-14 overflow-hidden rounded-full shadow-lg">
                 <img className='w-full h-full object-cover' src={user?.user_profile?.profile_pic_url} alt={user?.user_profile?.user?.username}/>
               </div>
             </Link>
