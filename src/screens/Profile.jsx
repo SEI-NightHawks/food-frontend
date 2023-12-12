@@ -16,6 +16,7 @@ function Profile({ user }) {
   }
 
   if (!user) return <h1>Loading...</h1>;
+  
 
   return (
     <div>
@@ -35,7 +36,8 @@ function Profile({ user }) {
               <img
                 src={photo.image_url}
                 alt={`${photo.id}`}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full transition-transform duration-500 hover:scale-110
+                hover:opacity-80"
               />
             </div>
           ))}
