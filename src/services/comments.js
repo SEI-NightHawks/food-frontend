@@ -1,11 +1,9 @@
 import api from "./apiConfig";
 
-export const getComments = async () => {
+export const getPostComments = async (post_id) => {
   try {
-    const response = await api.get("/comments/?format=json");
-    console.log(response)
-    return response.data
-    
+    const response = await api.get(`/posts/${post_id}/comments/`);
+    return response.data;
   } catch (error) {
     throw error;
   }
