@@ -1,28 +1,10 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 // import Slider from 'react-slick';
 import { signIn } from '../services/users.js'
 import { useNavigate } from 'react-router-dom';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
-
-// const images = [
-//   'https://images.unsplash.com/photo-1481931098730-318b6f776db0?q=80&w=3090&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-//   'https://plus.unsplash.com/premium_photo-1663852297267-827c73e7529e?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-//   'https://images.unsplash.com/photo-1576867757603-05b134ebc379?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-// ];
-
-// const settings = {
-//   autoplay: true,
-//   onChange: function noRefCheck() {},
-//   onStartChange: function noRefCheck() {},
-//   duration: 20000,
-//   arrows: false,
-//   lazyLoad: true,
-//   cssEase: 'linear',
-// };
-
-const SignIn = (props) => {
+const SignIn = ({setUser, setProfile}) => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -41,9 +23,10 @@ const SignIn = (props) => {
 
   const onSignIn = async event => {
     event.preventDefault();
-    const { setUser } = props;
+
     try {
       const user = await signIn(form);
+
       setUser(user);
       navigate("/feed");
     } catch (error) {
@@ -111,12 +94,14 @@ const SignIn = (props) => {
                   <p className="text-sm font-medium text-white">
                     Don't have an account yet? <a href="#" className="font-extrabold hover:underline dark:text-white">Sign up</a>
                   </p>
+                  <Link to={'/feed'}> 
                   <button
                     type="button"
                     className="w-full text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800"
                   >
                     Nosey?
                   </button>
+                  </Link>
                 </form>
               </div>
             </div>

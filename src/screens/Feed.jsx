@@ -4,8 +4,7 @@ import {getPosts} from '../../src/services/posts.js'
 import Post from '../components/Post.jsx'
 import Nav from '../components/Nav.jsx'
 
-function Posts(//{setShowNav}
-) {
+function Posts({user}) {
   // setShowNav(true)
     const [posts , setPosts] = useState([])
     const latestPosts = [...posts].reverse();
@@ -20,8 +19,8 @@ function Posts(//{setShowNav}
     }
     return (
       <div className="flex flex-col">
-        <Nav />
-        <div className="posts-container pt-20 p-3">
+        <Nav user={user}/>
+        <div className="posts-container pt-20 p-3 md:mt-6 lg:mt-6">
         {
           latestPosts.map((post) => (
          <Post key={post.id} post={post} />

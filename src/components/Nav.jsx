@@ -1,17 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { isAuthenticated } from '../services/authUtils';
 import { useState } from 'react';
+import { signOut } from '../services/users';
 
-const Nav = () => {
+
+const Nav = ({user}) => {
   const [activeItem, setActiveItem] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const loggedIn = isAuthenticated();
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  let navigate = useNavigate()
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);  };
@@ -20,6 +23,11 @@ const Nav = () => {
     setActiveItem(el);
   };
 
+  const handleSignOut = async (e) => {
+    await signOut()
+    navigate("/sign-in")
+  }
+
   const items = [
     { text: "Home", activeColor: "#F87917" },
     { text: "Profile", activeColor: "#663399" },
@@ -27,7 +35,7 @@ const Nav = () => {
 
   const renderLoggedInNavbar = () => (
     <div
-      className={`text-center bg-gray-200 rounded-b-2xl shadow-sm mb-10 fixed top-0 w-full border-b-2 border-gray-300`}
+      className={`backdrop-blur-sm text-center bg-red-200 bg-opacity-30 rounded-b-2xl shadow-lg mb-10 fixed top-0 w-full border-b-1 border-gray-300`}
     >
       <nav
         className={`flex justify-between items-center p-2 sm:p-4 text-white`}
@@ -40,7 +48,7 @@ const Nav = () => {
             handleIndicator(items[0]);
           }}
         >
-        <img src="https://raw.githubusercontent.com/SEI-NightHawks/food-frontend/8655cab7f5affda7ecb0921a827b41434120dac5/src/Images/munch-meet-logo.png" />
+        <img src="https://github.com/SEI-NightHawks/food-frontend/blob/develop/src/Images/logo.png?raw=true" />
         </Link>
 
         <div className={`flex justify-between w-40 `}>
@@ -48,7 +56,7 @@ const Nav = () => {
             className={`focus:outline-none text-white`}
             onClick={toggleDarkMode}
           >
-            Dark Mode
+            {/* Dark Mode */}
           </button>
           <div className="relative">
             <Link
@@ -60,8 +68,8 @@ const Nav = () => {
                 handleIndicator(items[1]);
               }}
             >
-              <div className="w-14 h-14 overflow-hidden rounded-full border-4 border-white">
-                {/* Replace with user image or icon */}
+              <div className="w-14 h-14 overflow-hidden rounded-full shadow-lg">
+                <img className='w-full h-full object-cover' src={user?.user_profile?.profile_pic_url} alt={user?.user_profile?.user?.username}/>
               </div>
             </Link>
             {dropdownVisible && (
@@ -70,7 +78,7 @@ const Nav = () => {
                   to="#"
                   className="block px-4 py-2 text-gray-800 hover:bg-green-600"
                 >
-                  Welcome, {}
+                  Welcome, {user?.user_profile?.user?.username}
                 </Link>
                 <Link
                   to="/profile"
@@ -84,12 +92,12 @@ const Nav = () => {
                 >
                   Add Post
                 </Link>
-                <Link
-                  to="/sign-out"
+                <button
+                  onClick={handleSignOut}
                   className="block px-4 py-2 text-gray-800 hover:bg-green-600"
                 >
                   Sign Out
-                </Link>
+                </button>
                 {/* Add more dropdown items here */}
               </div>
             )}
