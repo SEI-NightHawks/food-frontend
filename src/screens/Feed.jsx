@@ -19,7 +19,7 @@ function Posts({user}) {
     }
     return (
       <div className="flex flex-col">
-        <Nav user={user.user_profile}/>
+        <Nav user={user?.user_profile}/>
         <div className="posts-container pt-20 p-3 md:mt-6 lg:mt-6">
         {
           latestPosts.map((post) => (
