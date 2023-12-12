@@ -1,35 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getUserProfile } from '../services/user_profiles.js';
-import { getPost } from '../services/posts.js';
-import { isAuthenticated } from '../services/authUtils.js';
-import Nav from '../components/Nav.jsx'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getUserProfile } from "../services/user_profiles.js";
+import { getUserPosts } from "../services/posts.js";
+import { isAuthenticated } from "../services/authUtils.js";
+import Nav from "../components/Nav.jsx";
 
 function Profile() {
-    const [user , setUser] = useState({ user: {} })
-    console.log(user)
+  const [user, setUser] = useState({ user: {} });
+  const [userPosts, setUserPosts] = useState([]);
+  console.log(user);
 
-    useEffect(()=>{
-        fetchUser()
-      }, []) //only fire this function one time 
-    
-      async function fetchUser () {
-        const user = await getUserProfile()
-        setUser(user)
-      }
+  useEffect(() => {
+    fetchUser();
+    fetchPosts();
+  }, []); //only fire this function one time
+
+  async function fetchUser() {
+    const user = await getUserProfile();
+    setUser(user);
+  }
+  async function fetchPosts() {
+    const userPosts = await getUserPosts();
+    setUserPosts(userPosts);
+  }
 
   return (
-    <div className="container mx-auto px-4">
-         {/* <Nav user={user}/> */}
-      <div className="w-40 h-40 overflow-hidden rounded-full border-4 border-white"></div>
-      <h1 className="text-2xl font-bold">{user.user.username} Profile</h1>
-
-      {/* Display user photos */}
-      {/* <div className="grid grid-cols-3 gap-4 mt-8">
-        {userPosts.slice(0, 9).map((photo) => (
-          <img key={photo.id} src={photo.imageUrl} alt={`Photo ${photo.id}`} className="w-full h-auto" />
-        ))}
-      </div> */}
+    <div>
+      <Nav user={user} />
+      <div className="container mx-auto p-4">
+            <div className="flex items-center flex-col justify-center mt-20"> {/* Using flex-col to stack elements */}
+              <img
+                src={user.profile_pic_url}
+                alt="/"
+                className="rounded-full object-cover border-4 border-black h-44 w-44 mt-10"
+              />
+              <h1 className="text-2xl mt-5 text-black text-center font-bold">{user.user.username}</h1>
+            </div>
+        {/* Display user photos */}
+        <div className="grid grid-cols-3 gap-2 mt-8">
+          {userPosts.map((photo) => (
+            <div key={photo.id} className="aspect-w-1 aspect-h-1">
+              <img
+                src={photo.image_url}
+                alt={`Photo ${photo.id}`}
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
