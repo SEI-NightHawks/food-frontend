@@ -11,9 +11,33 @@ export const getPosts = async () => {
   }
 };
 
+export const getUserPosts = async (id) =>{
+  try {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('No token available');
+    }
+    const decodedToken = jwtDecode(token);
+    const userProfileId = decodedToken.user_id;
+    console.log(decodedToken)
+    console.log(userProfileId)
+    const response = await api.get(`user/posts/${userProfileId}/?format=json`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+//Use this for the post detail page :)
 export const getPost = async (id) => {
   try {
-    const response = await api.get(`/posts/${id}?format=json`);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('No token available');
+    }
+    const decodedToken = jwtDecode(token);
+    const userProfileId = decodedToken.user_id;
+    const response = await api.get(`user/posts/${id}/?format=json&user_profile=${userProfileId}`);
     return response.data;
   } catch (error) {
     throw error;
