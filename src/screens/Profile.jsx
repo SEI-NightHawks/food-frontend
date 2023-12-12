@@ -4,6 +4,7 @@ import Nav from "../components/Nav.jsx";
 
 function Profile({ user }) {
   const [userPosts, setUserPosts] = useState([]);
+  
 
   useEffect(() => {
     fetchPosts();
@@ -31,7 +32,7 @@ function Profile({ user }) {
               <h1 className="text-2xl mt-5 text-black text-center font-bold">{user.user_profile.user.username}</h1>
             </div>
         <div className="grid grid-cols-3 gap-2 mt-8">
-          {userPosts.map((photo) => (
+          {userPosts.slice().reverse().map((photo) => (
             <div key={photo.id} className="aspect-w-1 aspect-h-1">
               <img
                 src={photo.image_url}
