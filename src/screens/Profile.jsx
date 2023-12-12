@@ -7,12 +7,15 @@ function Profile({ user }) {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [user]);
 
   async function fetchPosts() {
-    const userPostsData = await getUserPosts(user.user_profile.id);
+    if (!user) return;
+    const userPostsData = await getUserPosts(user?.user_profile.id);
     setUserPosts(userPostsData);
   }
+
+  if (!user) return <h1>Loading...</h1>;
 
   return (
     <div>
@@ -20,7 +23,7 @@ function Profile({ user }) {
       <div className="container mx-auto p-4">
             <div className="flex items-center flex-col justify-center mt-20"> 
               <img
-                src={user.user_profile.profile_pic_url}
+                src={user?.user_profile.profile_pic_url}
                 alt="/"
                 className="rounded-full object-cover border-4 border-black h-44 w-44 mt-10"
               />
@@ -32,7 +35,7 @@ function Profile({ user }) {
               <img
                 src={photo.image_url}
                 alt={`${photo.id}`}
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
           ))}
