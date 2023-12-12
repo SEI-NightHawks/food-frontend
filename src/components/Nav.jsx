@@ -35,7 +35,7 @@ const Nav = ({user}) => {
 
   const renderLoggedInNavbar = () => (
     <div
-      className={`backdrop-blur-sm text-center bg-red-200 bg-opacity-30 rounded-b-2xl shadow-lg mb-10 fixed top-0 w-full border-b-1 border-gray-300`}
+      className={`backdrop-blur-sm text-center bg-red-200 bg-opacity-40 rounded-b-2xl shadow-lg mb-10 fixed top-0 w-full border-b-1 border-gray-300`}
     >
       <nav
         className={`flex justify-between items-center p-2 sm:p-4 text-white`}
@@ -73,28 +73,28 @@ const Nav = ({user}) => {
               </div>
             </Link>
             {dropdownVisible && (
-              <div className="absolute top-full right-0 mt-2 py-2 w-48 bg-red-600 rounded-lg shadow-lg z-10">
+              <div className="absolute top-full right-0 mt-2 py-2 w-48 backdrop-blur-sm flex flex-col items-center bg-red-200 bg-opacity-30 rounded-lg shadow-lg z-10">
                 <Link
                   to="#"
-                  className="block px-4 py-2 text-gray-800 hover:bg-green-600"
+                  className="block px-4 py-2 text-gray-800 w-full hover:bg-red-200"
                 >
-                  Welcome, {user?.user_profile?.user?.username}
+                  Welcome, {user?.user?.username}
                 </Link>
                 <Link
                   to="/profile"
-                  className="block px-4 py-2 text-gray-800 hover:bg-green-600"
+                  className="block px-4 py-2 text-gray-800 w-full hover:bg-red-300"
                 >
                   Profile
                 </Link>
                 <Link
-                  to="/add-post"
-                  className="block px-4 py-2 text-gray-800 hover:bg-green-600"
+                  to="/addpost"
+                  className="block px-4 py-2 text-gray-800 w-full hover:bg-red-400"
                 >
                   Add Post
                 </Link>
                 <button
                   onClick={handleSignOut}
-                  className="block px-4 py-2 text-gray-800 hover:bg-green-600"
+                  className="block px-4 py-2 text-gray-800 w-full hover:bg-red-500"
                 >
                   Sign Out
                 </button>
@@ -108,16 +108,27 @@ const Nav = ({user}) => {
   );
 
   const renderLoggedOutNavbar = () => (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/sign-in">Sign In</Link>
-        </li>
-        <li>
-          <Link to="/sign-up">Sign Up</Link>
-        </li>
-      </ul>
-    </nav>
+    <nav className={`flex justify-between items-center pb-2 px-4 text-red-400 text-center bg-gray-200 rounded-b-2xl shadow-sm mb-10 fixed top-0 w-full border-b-2 border-gray-300`}>
+    <Link
+       to="/"
+       className={`nav-item h-16 w-16 text-white`}
+       onClick={(e) => {
+         e.preventDefault();
+         handleIndicator(items[0]);
+       }}
+     >
+     <img src="https://raw.githubusercontent.com/SEI-NightHawks/food-frontend/8655cab7f5affda7ecb0921a827b41434120dac5/src/Images/munch-meet-logo.png" />
+     </Link>
+
+     <div className="flex flex-row p-2 gap-2">
+        <button className='flex-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center mt-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800'>
+         <Link to="/sign-in">Sign In</Link>
+       </button>
+       <button className='flex-1 text-white w-40 bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium          rounded-lg text-sm px-5 py-1.5 text-center mt-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800'>
+         <Link to="/sign-up">Sign Up</Link>
+       </button>
+     </div>
+ </nav>
   );
 
   return loggedIn ? renderLoggedInNavbar() : renderLoggedOutNavbar();
