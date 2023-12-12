@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import { getUserProfile } from '../services/user_profiles.js';
 import { getPost } from '../services/posts.js';
 import { isAuthenticated } from '../services/authUtils.js';
+import Nav from '../components/Nav.jsx'
 
 function Profile() {
-    const [user , setUser] = useState([])
+    const [user , setUser] = useState({ user: {} })
     console.log(user)
 
     useEffect(()=>{
@@ -16,31 +17,10 @@ function Profile() {
         const user = await getUserProfile()
         setUser(user)
       }
-//   const { profileId } = useParams();
-//   const loggedIn = isAuthenticated();
-//   const [userProfile, setUserProfile] = useState({});
-//   const [userPosts, setUserPosts] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         // Fetch user profile
-//         const profileData = await getUserProfile(profileId);
-//         setUserProfile(profileData);
-
-//         // Fetch user photos
-//         const photosData = await getPost(profileId);
-//         setUserPosts(photosData);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     };
-
-//     fetchData();
-//   }, [profileId]);
 
   return (
     <div className="container mx-auto px-4">
+         {/* <Nav user={user}/> */}
       <div className="w-40 h-40 overflow-hidden rounded-full border-4 border-white"></div>
       <h1 className="text-2xl font-bold">{user.user.username} Profile</h1>
 

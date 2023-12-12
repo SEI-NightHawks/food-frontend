@@ -1,4 +1,5 @@
 import api from "./apiConfig";
+import { jwtDecode } from "jwt-decode";
 
 export const getUserProfiles = async () => {
   try {
@@ -9,9 +10,24 @@ export const getUserProfiles = async () => {
   }
 };
 
-export const getUserProfile = async () => {
+export const getUserProfile = async (user) => {
   try {
-    const response = await api.get(`/user/profile/`);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('No token available');
+    }
+    const decodedToken = jwtDecode(token);
+    const userProfileId = decodedToken.user_id;
+    console.log(userProfileId, "abewdfbsDWFCJUswhnfcjuhn")
+    const response = await api.get(`/user/profile/`, {
+      ...user,
+      user_profile: userProfileId,
+    });
+    console.log(response);
+    return response.data;
+
+
+
     return response.data;
   } catch (error) {
     throw error;
