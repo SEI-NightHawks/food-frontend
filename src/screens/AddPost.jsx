@@ -31,12 +31,12 @@ function CreatePost() {
     }
 
   return (
-    <div className="bg-cover bg-center" style={{ backgroundImage: "url('https://cdn.winsightmedia.com/platform/files/public/2023-02/background/Anecdote%20dining_0.png?VersionId=Naw20KjJVvYFNdSC18Vpj9K5cX.s4NX8')" }}>
+    <div className="bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://img.freepik.com/free-photo/top-view-dining-tables-without-food_23-2150157791.jpg?w=2000&t=st=1702418679~exp=1702419279~hmac=d100a4ea2c27605d6584aa3ad857bc330df769111673c70c5714dd3a12fa8084')" }}>
       <div className="flex items-center justify-center min-h-screen">
         <section className="">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-              <div className="p-6 space-y-4 md:space-y-6 backdrop-blur rounded-lg sm:p-8">
+              <div className="p-6 space-y-4 md:space-y-6 backdrop-blur bg-black/20 rounded-lg sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="image_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
