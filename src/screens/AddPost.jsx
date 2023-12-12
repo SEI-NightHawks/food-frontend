@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPost } from '../services/posts';
+import Nav from '../components/Nav';
+
 
 function CreatePost() {
     
@@ -84,6 +86,7 @@ function CreatePost() {
             </div>
           </div>
         </section>
+        <Nav />
       </div>
     </div>
   );
