@@ -13,15 +13,7 @@ export const getPosts = async () => {
 
 export const getUserPosts = async (id) =>{
   try {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      throw new Error('No token available');
-    }
-    const decodedToken = jwtDecode(token);
-    const userProfileId = decodedToken.user_id;
-    console.log(decodedToken)
-    console.log(userProfileId)
-    const response = await api.get(`user/posts/${userProfileId}/?format=json`);
+    const response = await api.get(`user/posts/${id}/`);
     return response.data;
   } catch (error) {
     throw error;
