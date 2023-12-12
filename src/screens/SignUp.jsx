@@ -2,11 +2,13 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { signUp } from '../services/users'
 import { Link , useNavigate } from 'react-router-dom'
+import { createUserProfile } from '../services/user_profiles'
 
 const SignUp = (props) => {
   const navigate = useNavigate()
 
   const [form, setForm] = useState({
+    profile_pic_url: '',
     username: '',
     email: '',
     password: '',
@@ -31,6 +33,7 @@ const SignUp = (props) => {
     } catch (error) {
       console.error(error);
       setForm({
+        profile_pic_url: '',
         username: '',
         email: '',
         password: '',
@@ -54,24 +57,35 @@ const SignUp = (props) => {
     }
   }
 
-  const { username, email, password, passwordConfirmation } = form
+  const { profile_pic_url, username, email, password, passwordConfirmation } = form
 
   return (
     <div className="relative h-screen">
-    <div className="flex items-center justify-center min-h-screen absolute top-0 left-0 w-full">
+    <div className="flex items-center justify-center min-h-screen absolute top-0 left-0 w-full bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1619583314978-ec70ebeb3a7c?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
     <section className="">
-          <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-gray-800">
+          <div className="flex flex-col w-96 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div className="relative mb-6">
-              <div className="w-40 h-40 overflow-hidden rounded-full border-4 border-white">
+              <div className="">
                 {/* Placeholder for profile image */}
                 <div className="w-full h-full bg-gray-300 flex items-center justify-center relative">
-                  <span className="text-6xl text-gray-800 absolute bottom-1 right-5">+</span>
                 </div>
               </div>
             </div>
-            <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+            <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 backdrop-blur">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="#" onSubmit={onSignUp}>
+                <div className='m-10'>
+                <label htmlFor="profile_pic_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <input
+                      type="img"
+                      name="profile_pic_url"
+                      value={profile_pic_url}
+                      placeholder="Add Profile image"
+                      className="bg-gray-50 border  text-center h-44 w-44 border-gray-300 text-white sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required=""
+                      onChange={handleChange}
+                    />
+                  </div>
                   <div>
                     <label htmlFor="username" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
                     <input
@@ -127,7 +141,7 @@ const SignUp = (props) => {
                   >
                     Sign Up
                   </button> */}
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-center text-white">
                     Have an account? <a href="#" className="font-extrabold hover:underline dark:text-white"  ><Link to="/sign-in">Sign In</Link></a>
                   </p>
                 </form>

@@ -29,12 +29,12 @@ function CreatePost() {
     }
 
   return (
-    <div className="bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="bg-cover bg-center" style={{ backgroundImage: "url('https://cdn.winsightmedia.com/platform/files/public/2023-02/background/Anecdote%20dining_0.png?VersionId=Naw20KjJVvYFNdSC18Vpj9K5cX.s4NX8')" }}>
       <div className="flex items-center justify-center min-h-screen">
         <section className="">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-              <div className="p-6 space-y-4 md:space-y-6 bg-gray-200 rounded-lg sm:p-8">
+              <div className="p-6 space-y-4 md:space-y-6 backdrop-blur rounded-lg sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="image_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
@@ -43,7 +43,7 @@ function CreatePost() {
                       name="image_url"
                       value={post.image_url}
                       placeholder="Food image_url"
-                      className="bg-gray-50 border text-center h-52 border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center h-52 w-80 border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
@@ -62,7 +62,7 @@ function CreatePost() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="details" className="block mb-2 text-sm text-red-500 font-semibold text-center">How was the Food?</label>
+                    <label htmlFor="details" className="block mb-2 text-sm text-black font-bold text-center">How was the Food?</label>
                     <textarea
                       name="details"
                       value={post.details}
