@@ -26,12 +26,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/feed" element={<Feed user={user} />} />
-        <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
-        <Route path="/" element={<SignIn setUser={setUser} />} />
-        <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
-        <Route path="/addpost" element={<AddPost setUser={setUser} />} />
+        <Route path="/profile" element={<Profile user={user}/>}/> 
+        <Route path="/feed" element={<Feed user={user}/> }/>
+        <Route path="/sign-up" element={<SignUp setUser={setUser}/> }/>
+        <Route path="/" element={<SignIn setUser={setUser} />}/>
+        <Route path="/sign-in" element={<SignIn setUser={setUser}/> }/>
+        <Route path="/addpost" element={<AddPost setUser={setUser} /> }/>
       </Routes>
     </div>
   );
