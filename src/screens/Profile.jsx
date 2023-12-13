@@ -19,7 +19,7 @@ function Profile({ user }) {
 
   return (
     <div>
-      <Nav user={user} />
+      <Nav user={user?.user_profile} />
       <div className="container mx-auto p-4">
             <div className="flex items-center flex-col justify-center mt-20"> 
               <img
