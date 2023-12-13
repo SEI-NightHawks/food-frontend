@@ -125,7 +125,7 @@ const Nav = ({ user }) => {
 
       <div className="flex flex-row p-2 gap-2">
         <button className="flex-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center mt-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">
-          <Link to="/sign-in">Sign In</Link>
+          <Link to="/">Sign In</Link>
         </button>
         <button className="flex-1 text-white w-40 bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium          rounded-lg text-sm px-5 py-1.5 text-center mt-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">
           <Link to="/sign-up">Sign Up</Link>

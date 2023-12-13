@@ -73,7 +73,7 @@ const SignUp = (props) => {
             </div>
             <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 backdrop-blur bg-black/20">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <form className="space-y-4 md:space-y-6" action="#" onSubmit={onSignUp}>
+                <form className="space-y-4 md:space-y-6" action="/feed" onSubmit={onSignUp}>
                 <div className='m-10'>
                 <label htmlFor="profile_pic_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
                     <input
@@ -142,7 +142,7 @@ const SignUp = (props) => {
                     Sign Up
                   </button> */}
                   <p className="text-sm font-semibold text-center text-white">
-                    Have an account? <a href="#" className="font-extrabold hover:underline dark:text-white"  ><Link to="/sign-in">Sign In</Link></a>
+                    Have an account? <a href="#" className="font-extrabold hover:underline dark:text-white"  ><Link to="/">Sign In</Link></a>
                   </p>
                 </form>
             </div>
