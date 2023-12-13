@@ -9,6 +9,24 @@ function Posts({ user }) {
   const [posts, setPosts] = useState([]);
   // const latestPosts = [...posts].reverse();
 
+    useEffect(()=>{
+      fetchPosts()
+    }, []) //only fire this function one time 
+  
+    async function fetchPosts () {
+      const allPosts = await getPosts()
+      setPosts(allPosts)
+    }
+    return (
+      <div className="flex flex-col">
+        <Nav user={user?.user_profile}/>
+        <div className="posts-container pt-20 p-3 md:mt-6 lg:mt-6">
+        {
+          latestPosts.map((post) => (
+         <Post key={post.id} post={post} />
+          ))
+        }
+        </div>
   useEffect(() => {
     fetchPosts();
   }, []); //only fire this function one time
@@ -26,7 +44,6 @@ function Posts({ user }) {
           <Post key={post.id} post={post} user={user.user_profile} />
         ))}
       </div>
-    </div>
-  );
-}
-export default Posts;
+    )
+  }
+export default Posts
