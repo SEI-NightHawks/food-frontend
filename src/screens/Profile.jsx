@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUserPosts } from "../services/posts.js";
+import { updateUserProfile } from "../services/user_profiles.js";
 import Nav from "../components/Nav.jsx";
 import { Link } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
@@ -8,9 +9,11 @@ import { FaFacebookMessenger } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 
-function Profile({ user }) {
+function Profile({ user, setAppToggle }) {
   const navigate = useNavigate();
   const [userPosts, setUserPosts] = useState([]);
+  const [profile_pic_url, setProfile_pic_url] = useState("")
+  const [toggleEdit, setToggleEdit] = useState(false)
 
   useEffect(() => {
     fetchPosts();
@@ -20,18 +23,27 @@ function Profile({ user }) {
     if (!user) return;
     const userPostsData = await getUserPosts(user?.user_profile.id);
     setUserPosts(userPostsData);
+    setProfile_pic_url(user?.user_profile?.profile_pic_url)
     user.user_profile.posts_count = userPostsData.length;
   }
+  
   const handlePostClick = (postId) => {
     navigate(`/post/${postId}`);
     console.log(postId);
-}
+  }
 
   const [toggleState, setToggleState] = useState("posts");
 
   const handleToggle = (value) => {
     setToggleState(value);
   };
+
+  const handleProfileEditSubmit = async (e) => {
+    e.preventDefault()
+    await updateUserProfile({profile_pic_url})
+    setToggleEdit(false)
+    setAppToggle(prev => !prev)
+  }
 
   if (!user) return <h1>Loading...</h1>;
 
@@ -69,15 +81,27 @@ function Profile({ user }) {
                       <GoShare  size={20} />
                   </button>
                 </Link>
-                <Link to="/">
-                  <button className=" m-2 bg-black hover:bg-red-400 text-white font-bold py-1 px-2  rounded-xl transform transition duration-500 ease-in-over hover:scale-105 md:block hidden">
-                     Edit Profile
-                  </button>
-                  <button className="m-2 bg-black hover:bg-red-400 text-white font-bold py-1 px-2 rounded-xl transform transition duration-500 ease-in-over hover:scale-105 md:hidden block">
-                      <CiEdit size={20} />
-                  </button>
-                </Link>
+                <button onClick={() => setToggleEdit(prev => !prev)} className=" m-2 bg-black hover:bg-red-400 text-white font-bold py-1 px-2  rounded-xl transform transition duration-500 ease-in-over hover:scale-105 md:block hidden">
+                    Edit Profile
+                </button>
+                <button className="m-2 bg-black hover:bg-red-400 text-white font-bold py-1 px-2 rounded-xl transform transition duration-500 ease-in-over hover:scale-105 md:hidden block">
+                    <CiEdit size={20} />
+                </button>
               </div>
+              {toggleEdit && 
+                <div>
+                  <form onSubmit={handleProfileEditSubmit}>
+                    <input 
+                      type="text"
+                      name="profile_pic_url"
+                      placeholder="update profile pic"
+                      value={profile_pic_url}
+                      onChange={(e) => setProfile_pic_url(e.target.value)}
+                    />
+                    <button type="submit">Update Profile Image</button>
+                  </form>
+                </div>
+              }
             </div>
           </div>
         </div>

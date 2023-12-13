@@ -11,6 +11,7 @@ import DetailPage from "./screens/DetailPage.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [appToggle, setAppToggle] = useState(false)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -19,12 +20,12 @@ function App() {
     };
 
     fetchUser();
-  }, []);
+  }, [appToggle]);
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/profile" element={<Profile user={user} />} />
+        <Route path="/profile" element={<Profile user={user} setAppToggle={setAppToggle}/>} />
         <Route path="/feed" element={<Feed user={user} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
         <Route path="/" element={<SignIn setUser={setUser} />} />
