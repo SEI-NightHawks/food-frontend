@@ -1,32 +1,33 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { isAuthenticated } from '../services/authUtils';
-import { useState } from 'react';
-import { signOut } from '../services/users';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { isAuthenticated } from "../services/authUtils";
+import { useState } from "react";
+import { signOut } from "../services/users";
 
-
-const Nav = ({user}) => {
+const Nav = ({ user }) => {
   const [activeItem, setActiveItem] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const loggedIn = isAuthenticated();
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);  };
+    setDropdownVisible(!dropdownVisible);
+  };
 
   const handleIndicator = (el) => {
     setActiveItem(el);
   };
 
   const handleSignOut = async (e) => {
-    await signOut()
-    navigate("/sign-in")
-  }
+    await signOut();
+    navigate("/");
+  };
 
   const items = [
     { text: "Home", activeColor: "#F87917" },
@@ -48,7 +49,7 @@ const Nav = ({user}) => {
             handleIndicator(items[0]);
           }}
         >
-        <img src="https://github.com/SEI-NightHawks/food-frontend/blob/develop/src/Images/logo.png?raw=true" />
+          <img src="https://github.com/SEI-NightHawks/food-frontend/blob/develop/src/Images/logo.png?raw=true" />
         </Link>
 
         <div className={`flex justify-between w-40 `}>

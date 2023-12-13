@@ -1,11 +1,10 @@
 import React from "react";
 import { HiLocationMarker } from "react-icons/hi";
-// import {Link} from 'react-router-dom'
-// import "../css/Characters.css"
 import CommentModal from "./CommentModal.jsx";
 import { useState } from "react";
+import { FaComment } from "react-icons/fa";
 
-function Post({ post }) {
+function Post({ post, user }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -44,21 +43,22 @@ function Post({ post }) {
         </span>
       </div>
 
-      <div className="px-4 pb-2 " onClick={openModal}>
+      <div className="px-4 pb-2 inline-flex justify-around" onClick={openModal}>
         <span className="font-semibold">
           {post.user_profile.user.username}{" "}
         </span>
-        {post.details}
+        <span className="ml-2">{post.details}</span>
+        <FaComment className="ml-2 text-pink-500 cursor-pointer" />
       </div>
       {isModalOpen && (
         <CommentModal
           isOpen={isModalOpen}
           onRequestClose={closeModal}
           post={post}
+          user={user}
         />
       )}
     </div>
-    // </Link>
   );
 }
 

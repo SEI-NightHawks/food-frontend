@@ -5,8 +5,8 @@ export const signUp = async (credentials) => {
   try {
     const resp = await api.post("/users/register/", credentials);
     const token = resp.data.access;
-    console.log(resp.data)
-    localStorage.setItem('token', token);
+    console.log(resp.data);
+    localStorage.setItem("token", token);
     const user = jwtDecode(token);
     return user;
   } catch (error) {
