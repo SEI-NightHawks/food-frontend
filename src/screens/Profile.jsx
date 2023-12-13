@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { getUserPosts } from "../services/posts.js";
 import Nav from "../components/Nav.jsx";
+import { useNavigate } from "react-router-dom";
+import { navigate } from 'react-router-dom';
+
 
 function Profile({ user }) {
+  const navigate = useNavigate();
   const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
@@ -14,7 +18,10 @@ function Profile({ user }) {
     const userPostsData = await getUserPosts(user?.user_profile.id);
     setUserPosts(userPostsData);
   }
-
+  const handlePostClick = (postId) => {
+    navigate(`/post/${postId}`);
+    console.log(postId);
+}
   if (!user) return <h1>Loading...</h1>;
 
   return (
@@ -31,7 +38,7 @@ function Profile({ user }) {
             </div>
         <div className="grid grid-cols-3 gap-2 mt-8">
           {userPosts.map((photo) => (
-            <div key={photo.id} className="aspect-w-1 aspect-h-1">
+            <div key={photo.id} className="aspect-w-1 aspect-h-1" onClick={() => handlePostClick(photo.id)}>
               <img
                 src={photo.image_url}
                 alt={`${photo.id}`}
