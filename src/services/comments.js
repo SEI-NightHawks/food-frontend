@@ -18,9 +18,12 @@ export const getComment = async (id) => {
   }
 };
 
-export const createComment = async (comment) => {
+export const createComment = async (post_id, comment) => {
   try {
-    const response = await api.post("/comments/?format=json", comment);
+    const response = await api.post(
+      `/posts/${post_id}/comments/create/`,
+      comment
+    );
     return response.data;
   } catch (error) {
     throw error;
