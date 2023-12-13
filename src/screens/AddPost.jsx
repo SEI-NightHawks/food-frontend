@@ -31,7 +31,7 @@ function CreatePost() {
     }
 
   return (
-    <div className="bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://img.freepik.com/free-photo/top-view-dining-tables-without-food_23-2150157791.jpg?w=2000&t=st=1702418679~exp=1702419279~hmac=d100a4ea2c27605d6584aa3ad857bc330df769111673c70c5714dd3a12fa8084')" }}>
+    <div className="bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://itsavegworldafterall.com/wp-content/uploads/2023/04/Avocado-Caesar-Salad-1.jpg')" }}>
       <div className="flex items-center justify-center min-h-screen">
         <section className="">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
