@@ -16,8 +16,9 @@ const getToken = () => {
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-      ? ""
-      : "http://127.0.0.1:8000/api/",
+      ? "https://munchmeet-api-904c970ee4a3.herokuapp.com/api/"
+      : "https://munchmeet-api-904c970ee4a3.herokuapp.com/api/",
+      //http://127.0.0.1:8000/api/
 });
 
 // api.interceptors.request.use(
