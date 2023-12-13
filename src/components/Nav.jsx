@@ -2,17 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { isAuthenticated } from '../services/authUtils';
 import { useState } from 'react';
-import { FiSun , FiMoon } from "react-icons/fi";
 
 const Nav = () => {
   const [activeItem, setActiveItem] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const loggedIn = isAuthenticated();
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);  };
@@ -43,14 +37,6 @@ const Nav = () => {
         >
         <img src="https://raw.githubusercontent.com/SEI-NightHawks/food-frontend/8655cab7f5affda7ecb0921a827b41434120dac5/src/Images/munch-meet-logo.png" />
         </Link>
-
-        <div className={`flex justify-between w-40`}>
-              <button
-                className={`focus:outline-none ${darkMode ? 'text-black' : 'text-black'}`}
-                onClick={toggleDarkMode}
-              >
-                {darkMode ? <FiSun className='text-xl'/> : <FiMoon className='text-xl'/>}
-              </button>
           <div className="relative">
             <Link
               to="#"
@@ -95,7 +81,7 @@ const Nav = () => {
               </div>
             )}
           </div>
-        </div>
+        
       </nav>
     </div>
   );
