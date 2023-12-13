@@ -6,7 +6,9 @@ import { CiEdit } from "react-icons/ci";
 import { GoShare } from "react-icons/go";
 import { FaFacebookMessenger } from "react-icons/fa";
 
+
 function Profile({ user }) {
+  const navigate = useNavigate();
   const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function Profile({ user }) {
 
   return (
     <div>
-      <Nav user={user} />
+      <Nav user={user?.user_profile} />
       <div className="container mx-auto p-4">
         <div className="flex items-center justify-center mt-20">
           <div className="flex flex-row">
