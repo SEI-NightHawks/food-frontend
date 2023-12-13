@@ -7,6 +7,7 @@ import SignIn from "./screens/SignIn.jsx";
 import { Route, Routes } from "react-router-dom";
 import { verifyUser } from "./services/users.js";
 import AddPost from "./screens/AddPost.jsx";
+import DetailPage from "./screens/DetailPage.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
         <Route path="/" element={<SignIn setUser={setUser} />} />
         <Route path="/addpost" element={<AddPost user={user} />} />
+        <Route path="/post/:id" element={<DetailPage setUser={setUser} user={user}/> }/>
       </Routes>
     </div>
   );
