@@ -4,20 +4,20 @@ import { getPosts } from "../../src/services/posts.js";
 import Post from "../components/Post.jsx";
 import Nav from "../components/Nav.jsx";
 
-function Posts({ user }) {
-  // setShowNav(true)
-  const [posts, setPosts] = useState([]);
-  // const latestPosts = [...posts].reverse();
 
+function Posts({ user }) {
+  const [posts, setPosts] = useState([]);
+  
   useEffect(() => {
     fetchPosts();
   }, []); //only fire this function one time
-
+  
   async function fetchPosts() {
     const allPosts = await getPosts();
     const latestPosts = [...allPosts].reverse();
     setPosts(latestPosts);
   }
+
   return (
     <div className="flex flex-col">
       <Nav user={user} />

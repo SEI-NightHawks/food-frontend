@@ -113,10 +113,9 @@ const Nav = ({ user }) => {
       className={`flex justify-between items-center pb-2 px-4 text-red-400 text-center bg-gray-200 rounded-b-2xl shadow-sm mb-10 fixed top-0 w-full border-b-2 border-gray-300`}
     >
       <Link
-        to="/"
+        to="/feed"
         className={`nav-item h-16 w-16 text-white`}
         onClick={(e) => {
-          e.preventDefault();
           handleIndicator(items[0]);
         }}
       >

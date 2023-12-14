@@ -90,15 +90,16 @@ function Profile({ user, setAppToggle }) {
               </div>
               {toggleEdit && 
                 <div>
-                  <form onSubmit={handleProfileEditSubmit}>
+                  <form onSubmit={handleProfileEditSubmit} className="mb-4">
                     <input 
                       type="text"
                       name="profile_pic_url"
                       placeholder="update profile pic"
                       value={profile_pic_url}
                       onChange={(e) => setProfile_pic_url(e.target.value)}
+                      className="border border-gray-300 rounded-md py-2 px-4 mr-2 focus:outline-none focus:border-red-400"
                     />
-                    <button type="submit">Update Profile Image</button>
+                    <button className="bg-red-400 text-white py-2 px-4 rounded-md" type="submit">Update Profile Image</button>
                   </form>
                 </div>
               }
