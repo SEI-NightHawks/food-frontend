@@ -23,7 +23,7 @@ function App() {
   }, [appToggle]);
 
   return (
-    <div className="App dark:bg-black">
+    <div className="App bg-gradient-to-b from-white to-red-300  dark:bg-gradient-to-b from-black to-red-300">
       <Routes>
         <Route path="/profile" element={<Profile user={user} setAppToggle={setAppToggle}/>} />
         <Route path="/feed" element={<Feed user={user} />} />

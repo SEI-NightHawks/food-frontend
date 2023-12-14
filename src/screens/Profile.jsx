@@ -61,7 +61,7 @@ function Profile({ user, setAppToggle }) {
               />
             </div>
             <div>
-              <h1 className="text-4xl mt-5 text-black text-center font-bold">
+              <h1 className="text-4xl mt-5 text-black dark:text-white text-center font-bold">
                 {user.user_profile.user.username}
               </h1>
               <p className="mt-2 text-black text-center">Posts: {user.user_profile.posts_count}</p>
@@ -99,7 +99,7 @@ function Profile({ user, setAppToggle }) {
                       onChange={(e) => setProfile_pic_url(e.target.value)}
                       className="border border-gray-300 rounded-md py-2 px-4 mr-2 focus:outline-none focus:border-red-400"
                     />
-                    <button className="bg-red-400 text-white py-2 px-4 rounded-md" type="submit">Update Profile Image</button>
+                    <button className="bg-red-400 text-black dark:text-white py-2 px-4 rounded-md" type="submit">Update Profile Image</button>
                   </form>
                 </div>
               }
