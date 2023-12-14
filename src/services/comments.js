@@ -1,11 +1,9 @@
 import api from "./apiConfig";
 
-export const getComments = async () => {
+export const getPostComments = async (post_id) => {
   try {
-    const response = await api.get("/comments/?format=json");
-    console.log(response)
-    return response.data
-    
+    const response = await api.get(`/posts/${post_id}/comments/`);
+    return response.data;
   } catch (error) {
     throw error;
   }
@@ -20,9 +18,12 @@ export const getComment = async (id) => {
   }
 };
 
-export const createComment = async (comment) => {
+export const createComment = async (post_id, comment) => {
   try {
-    const response = await api.post("/comments/?format=json", comment);
+    const response = await api.post(
+      `/posts/${post_id}/comments/create/`,
+      comment
+    );
     return response.data;
   } catch (error) {
     throw error;
