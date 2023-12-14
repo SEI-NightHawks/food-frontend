@@ -35,7 +35,7 @@ function DetailPage({ user }) {
   const handleDelete = async () => {
     try {
       await deletePost(id);
-      Navigate("/profile"); // Redirect to another page after deletion, e.g., home page
+      navigate("/profile"); // Redirect to another page after deletion, e.g., home page
     } catch (error) {
       console.error("Error deleting the post:", error);
       // Handle errors as needed

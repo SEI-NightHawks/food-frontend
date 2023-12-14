@@ -61,7 +61,7 @@ const SignUp = (props) => {
 
   return (
     <div className="relative h-screen">
-    <div className="flex items-center justify-center min-h-screen absolute top-0 left-0 w-full bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1619583314978-ec70ebeb3a7c?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="flex items-center justify-center min-h-screen absolute top-0 left-0 w-full bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2023-07/barbie-burger-mc-230713-1aaf12.jpg')" }}>
     <section className="">
           <div className="flex flex-col w-96 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div className="relative mb-6">
