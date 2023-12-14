@@ -75,61 +75,61 @@ const SignUp = (props) => {
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="/feed" onSubmit={onSignUp}>
                 <div className='m-10'>
-                <label htmlFor="profile_pic_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                <label htmlFor="profile_pic_url" className="block mb-2 text-sm font-medium text-black dark:text-white "></label>
                     <input
                       type="img"
                       name="profile_pic_url"
                       value={profile_pic_url}
                       placeholder="Add Profile image"
-                      className="bg-gray-50 border  text-center mt h-44 w-44 border-gray-300 text-white sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border  text-center mt h-44 w-44 border-gray-300 text-black sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="username" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="username" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="text"
                       name="username"
                       value={username}
-                      className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Username"
                       required=""
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="email"
                       name="email"
                       value={email}
-                      className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Email"
                       required=""
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="password"
                       name="password"
                       value={password}
                       placeholder="Password"
-                      className="bg-gray-50 border border-gray-300 text-white text-center sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-black text-center sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="passwordConfirmation" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="passwordConfirmation" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="password"
                       name="passwordConfirmation"
                       value={passwordConfirmation}
                       placeholder="Confirm Password"
-                      className="bg-gray-50 border border-gray-300 text-white text-center sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-black text-center sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />

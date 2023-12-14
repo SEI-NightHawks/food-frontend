@@ -40,25 +40,25 @@ function CreatePost({user}) {
               <div className="p-6 space-y-4 md:space-y-6 backdrop-blur bg-black/20 rounded-lg sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleSubmit}>
                   <div>
-                    <label htmlFor="image_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="image_url" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="img"
                       name="image_url"
                       value={post.image_url}
                       placeholder="Food image_url"
-                      className="bg-gray-50 border text-center h-52 w-80 border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center h-52 w-80 border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="location" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="location" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="text"
                       name="location"
                       value={post.location}
                       maxLength="255"
-                      className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Location"
                       required=""
                       onChange={handleChange}
@@ -70,7 +70,7 @@ function CreatePost({user}) {
                       name="details"
                       value={post.details}
                       maxLength="255"
-                      className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your feedback (max 250 characters)"
                       required=""
                       onChange={handleChange}
