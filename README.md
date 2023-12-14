@@ -2,6 +2,10 @@
 
 Meal Meet is a blog for users to view food eaten at various locations, express their opinions and post pictures of their delicious (hopefully) meals.  This README provides an overview of the React frontend code structure, endpoints, and paths. It includes instructions to start the React app and other pertinent information.
 
+### Deployed Site
+https://munch-meet.netlify.app/feed
+
+
 ### Team Members
 <img src="ReadmeImages/T0351JZQ0-U05JL6LL5A8-0e474603f175-512.png"  width="30" height="30">  Chris Hercules (github: https://github.com/christopher19)
 
