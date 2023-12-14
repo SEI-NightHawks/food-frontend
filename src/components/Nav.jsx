@@ -79,7 +79,7 @@ const Nav = ({ user }) => {
                   to="#"
                   className="block px-4 py-2 text-gray-800 w-full hover:bg-red-200"
                 >
-                  Welcome, {user?.user?.username}
+                  Welcome, {user?.user_profile?.user?.username}
                 </Link>
                 <Link
                   to="/profile"

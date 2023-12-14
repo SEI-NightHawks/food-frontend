@@ -49,7 +49,7 @@ function Profile({ user, setAppToggle }) {
 
   return (
     <div>
-      <Nav user={user?.user_profile} />
+      <Nav user={user} />
       <div className="container mx-auto p-4">
         <div className="flex items-center justify-center mt-20">
           <div className="flex flex-row">
