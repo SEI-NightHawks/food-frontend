@@ -109,7 +109,7 @@ const SignIn = (props) => {
                   </div>
                   {renderError()}
                   <p className="text-sm font-medium text-white">
-                    Don't have an account yet? <a href="#" className="font-extrabold hover:underline dark:text-white">Sign up</a>
+                    Don't have an account yet? <Link to="/sign-up" className="font-extrabold hover:underline dark:text-white">Sign up</Link>
                   </p>
                   <button
                     type="button"

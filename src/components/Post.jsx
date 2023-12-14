@@ -3,9 +3,13 @@ import { HiLocationMarker } from "react-icons/hi";
 import CommentModal from "./CommentModal.jsx";
 import { useState } from "react";
 import { FaComment } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 function Post({ post, user }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -14,6 +18,9 @@ function Post({ post, user }) {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const handlePostClick = (postId) => {
+    navigate(`/post/${postId}`);
+   }
   return (
     <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-md max-w-md mx-auto my-4">
       {/* Header - User Info */}
@@ -30,6 +37,7 @@ function Post({ post, user }) {
       {/* Image */}
       <img
         className="w-full object-cover"
+        onClick={() => handlePostClick(post.id)} 
         src={post.image_url}
         alt={post.details}
       />
@@ -48,7 +56,7 @@ function Post({ post, user }) {
           {post.user_profile.user.username}{" "}
         </span>
         <span className="ml-2">{post.details}</span>
-        <FaComment className="ml-2 text-pink-500 cursor-pointer" />
+        <FaComment className="ml-2 hover:text-red-400 text-black cursor-pointer mt-0.5 text-lg" />
       </div>
       {isModalOpen && (
         <CommentModal
