@@ -23,7 +23,7 @@ function App() {
   }, [appToggle]);
 
   return (
-    <div className="App">
+    <div className="App dark:bg-black">
       <Routes>
         <Route path="/profile" element={<Profile user={user} setAppToggle={setAppToggle}/>} />
         <Route path="/feed" element={<Feed user={user} />} />
