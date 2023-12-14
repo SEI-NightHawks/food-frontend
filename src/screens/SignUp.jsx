@@ -26,8 +26,12 @@ const SignUp = (props) => {
   const onSignUp = async (event) => {
     event.preventDefault();
     const { setUser } = props;
+    let creds = {
+      username:form.username,
+      password:form.password
+    }
     try {
-      const user = await signUp(form);
+      const user = await signUp(creds);
       setUser(user)
       navigate('/feed');
     } catch (error) {

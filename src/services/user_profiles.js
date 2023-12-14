@@ -28,7 +28,7 @@ export const getUserProfile = async (user) => {
 
 
 
-    return response.data;
+    //return response.data;
   } catch (error) {
     throw error;
   }

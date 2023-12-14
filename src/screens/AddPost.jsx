@@ -4,12 +4,13 @@ import { createPost } from '../services/posts';
 import Nav from '../components/Nav';
 
 
-function CreatePost() {
+function CreatePost({user}) {
     
     const [post, setPost] = useState({
         image_url: "",
         location: "",
         details: "",
+        user_profile: user.user_profile.id
     })
 
     let navigate = useNavigate()

@@ -38,18 +38,14 @@ export const getPost = async (id) => {
 
 export const createPost = async (post) => {
   try {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      throw new Error('No token available');
-    }
-    const decodedToken = jwtDecode(token);
-    const userProfileId = decodedToken.user_id;
-    console.log(userProfileId, "abewdfbsDWFCJUswhnfcjuhn")
-    const response = await api.post("/posts/?format=json", {
-      ...post,
-      user_profile: userProfileId,
-    });
-    console.log(response);
+    // const token = localStorage.getItem('token');
+    // if (!token) {
+    //   throw new Error('No token available');
+    // }
+    // const decodedToken = jwtDecode(token);
+    // const userProfileId = decodedToken.user_id;
+    // console.log(userProfileId, "abewdfbsDWFCJUswhnfcjuhn")
+    const response = await api.post("/posts/", post);
     return response.data;
 
   } catch (error) {
