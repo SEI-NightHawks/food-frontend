@@ -4,12 +4,13 @@ import { createPost } from '../services/posts';
 import Nav from '../components/Nav';
 
 
-function CreatePost() {
+function CreatePost({user}) {
     
     const [post, setPost] = useState({
         image_url: "",
         location: "",
         details: "",
+        user_profile: user.user_profile.id
     })
 
     let navigate = useNavigate()
@@ -31,7 +32,7 @@ function CreatePost() {
     }
 
   return (
-    <div className="bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://itsavegworldafterall.com/wp-content/uploads/2023/04/Avocado-Caesar-Salad-1.jpg')" }}>
+    <div className="bg-cover bg-center brightness-75" style={{ backgroundImage: "url('https://i.imgur.com/H48aamZ.png')" }}>
       <div className="flex items-center justify-center min-h-screen">
         <section className="">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -39,25 +40,25 @@ function CreatePost() {
               <div className="p-6 space-y-4 md:space-y-6 backdrop-blur bg-black/20 rounded-lg sm:p-8">
                 <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleSubmit}>
                   <div>
-                    <label htmlFor="image_url" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="image_url" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="img"
                       name="image_url"
                       value={post.image_url}
                       placeholder="Food image_url"
-                      className="bg-gray-50 border text-center h-52 w-80 border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center h-52 w-80 border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="location" className="block mb-2 text-sm font-medium text-white dark:text-white"></label>
+                    <label htmlFor="location" className="block mb-2 text-sm font-medium text-black dark:text-white"></label>
                     <input
                       type="text"
                       name="location"
                       value={post.location}
                       maxLength="255"
-                      className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Location"
                       required=""
                       onChange={handleChange}
@@ -69,7 +70,7 @@ function CreatePost() {
                       name="details"
                       value={post.details}
                       maxLength="255"
-                      className="bg-gray-50 border text-center border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border text-center border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your feedback (max 250 characters)"
                       required=""
                       onChange={handleChange}
@@ -86,7 +87,7 @@ function CreatePost() {
             </div>
           </div>
         </section>
-        <Nav />
+        <Nav user={user}/>
       </div>
     </div>
   );

@@ -7,9 +7,11 @@ import SignIn from "./screens/SignIn.jsx";
 import { Route, Routes } from "react-router-dom";
 import { verifyUser } from "./services/users.js";
 import AddPost from "./screens/AddPost.jsx";
+import DetailPage from "./screens/DetailPage.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [appToggle, setAppToggle] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -18,25 +20,23 @@ function App() {
     };
 
     fetchUser();
-  }, []);
+  }, [appToggle]);
 
   return (
-    <div className="App">
+    <div className="App bg-gradient-to-b from-white to-red-300  dark:bg-gradient-to-b from-black to-red-300">
       <Routes>
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={<Profile user={user} setAppToggle={setAppToggle} />}
+        />
         <Route path="/feed" element={<Feed user={user} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
         <Route path="/" element={<SignIn setUser={setUser} />} />
         <Route path="/addpost" element={<AddPost user={user} />} />
         <Route
-          path="/profile"
-          element={<Profile setUser={setUser} user={user} />}
+          path="/post/:id"
+          element={<DetailPage setUser={setUser} user={user} />}
         />
-        <Route path="/feed" element={<Feed user={user} />} />
-        <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
-        <Route path="/" element={<SignIn setUser={setUser} />} />
-        <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
-        <Route path="/addpost" element={<AddPost setUser={setUser} />} />
       </Routes>
     </div>
   );

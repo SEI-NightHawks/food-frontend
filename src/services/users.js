@@ -1,14 +1,14 @@
 import api from "./apiConfig";
-import { jwtDecode } from "jwt-decode";
+// import { jwtDecode } from "jwt-decode";
 
 export const signUp = async (credentials) => {
   try {
     const resp = await api.post("/users/register/", credentials);
     const token = resp.data.access;
-    console.log(resp.data);
+    // console.log(resp.data);
     localStorage.setItem("token", token);
-    const user = jwtDecode(token);
-    return user;
+    // const user = jwtDecode(token);
+    return resp.data;
   } catch (error) {
     console.error("Sign-up error:", error);
     throw error;

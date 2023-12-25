@@ -43,9 +43,9 @@ export const createUserProfile = async (userProfile) => {
   }
 };
 
-export const updateUserProfile = async (id, userProfile) => {
+export const updateUserProfile = async (profileData) => {
   try {
-    const response = await api.put(`/userProfiles/${id}?format=json`, userProfile);
+    const response = await api.put(`/user/profile/`, profileData);
     return response.data;
   } catch (error) {
     throw error;
